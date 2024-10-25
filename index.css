@@ -1,175 +1,137 @@
-html, body {
+/* Reset some default styles */
+body, h1, h2, h3, p {
     margin: 0;
+    padding: 0;
     font-family: 'Karla', sans-serif;
-    font-size: large;
-   
 }
 
-/*typography*/
+header {
+    background-color: #ffcc00; /* Light pumpkin color */
+    padding: 20px;
+}
 
-h1, h2, h3{
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pumpkin-img {
+    width: 50px; /* Set a suitable size for the image */
+    height: auto;
+    margin-right: 20px;
+}
+
+h1, h2 {
+    color: #333;
     text-align: center;
 }
 
-h1, h2{
-    color: #ffffff;
-    margin: 0;
-    
-}
-
-h1{
-    font-size: 28px;
+h1 {
+    font-size: 2.5em;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 1.5em;
 }
 
-h3{
-    margin: 25px;
+main {
+    padding: 20px;
+    text-align: center;
 }
 
-/* layout */
-
-header{
-    background-color: #ef8d38;
-}
-
-.header-inner{
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: 370px;
-    gap: 15px;
-    padding: 10px 0 0 0;
-}
-
-.pumpkin-img{
-    width: 80px;
-}
-
-.controls-container{
+.controls-container {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    margin: 0px auto;
-}
-
-/* controls */
-
-.emotion-radios{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #6c04fd;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bolder;
-    width: 320px;
-}
-
-.radio{
-    display: flex;
     align-items: center;
-    border-bottom: 1px solid #bcbcbc;
-    padding: 4px 8px;
-    width: 300px;
+    margin-top: 20px;
 }
 
-.radio:first-child{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.radio:last-child{
-    border-bottom: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-label{
-    font-size: 14px;
-    padding: 3px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.highlight{
-    background-color: #fff0ee;
-    color: #bd301d;
-    font-weight: bold;
-    accent-color: #bd301d;
-}
-
-input[type="radio"]{
-    cursor: pointer;
-}
-
-.gifs-check{
+.emotion-radios {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 16px;
+    gap: 10px;
 }
 
-.gifs-check-label{
-    width: unset;
-    margin-right: 5px;
-    font-weight: bolder;
+.radio {
+    display: flex;
+    align-items: center;
 }
 
-.get-image-btn{
-    background-color: #c84673;
-    color: #eed6d3;
-    padding: 15px 19px;
-    font-size: 24px;
+.gifs-check {
+    margin: 15px 0;
+}
+
+.get-image-btn {
+    background-color: #ffcc00;
     border: none;
-    border-radius: 5px;
-    margin-bottom: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
 }
 
-/* modal */
+.get-image-btn:hover {
+    background-color: #e6b800; /* Darker pumpkin color */
+}
 
-.meme-modal{
-    display: none; /*flex when displayed*/
+.meme-modal {
+    display: none; /* Initially hidden */
     position: fixed;
-    margin: auto;
-    top: 80px;
+    top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     align-items: center;
     justify-content: center;
-    border: 1px solid #67595e;
-    border-radius: 5px;
-    width: 420px;
-    height: 490px;
-    background-color: #fff0ee;
-}
-.not-allowed {
-    cursor: not-allowed;
-    opacity: 0.5; /* Make the button look disabled */
 }
 
-.cat-img{
-    max-width: 340px;
-    max-height: 420px;
-    border-radius: 5px;
+.meme-modal-inner {
+    background-color: #fff; /* White background for the modal */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
-.meme-modal-close-btn{
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    background-color: transparent;
-    border: 2px solid #555;
-    color: #555;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 14px;
-}
-
-.meme-modal-close-btn:hover{
+.meme-modal-close-btn {
+    background-color: red;
     color: white;
-    background-color: #bd301d;
-    border: 2px solid #bd301d;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
- 
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .get-image-btn {
+        width: 100%; /* Full-width button on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .get-image-btn {
+        font-size: 1em; /* Smaller button text */
+    }
+}
